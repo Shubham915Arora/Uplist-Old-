@@ -1,0 +1,167 @@
+{% load static %}
+{% include 'header.html'%}
+
+<style>
+    .product-item1 img {
+    width: 230%;
+    overflow: hidden;
+    hhttp: //127.0.0.1:8000/eight;
+    hhttp: //127.0.0.1:8000/;
+    height: 350px;
+    margin: 20px 40px;
+}
+.left-content{
+    font-size: 16px;
+    color: #1a6692;
+    margin-bottom: 50px;
+    text-align: left ;
+}
+</style>
+
+
+    <!-- ***** Preloader End ***** -->
+
+<br><br><br>
+
+    <div class="best-features about-features">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-2 all des">
+            <div class="product-item1">
+              <a><img src="{{ad.img1.url}}" alt=""></a>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="left-content">
+              <h5>{{ad.ad_name}}</h5><br>
+              <h4>{{ad.ad_des}}</h4><br>
+              <p>Price : Rs.{{ad.ad_price}}</p>
+              <p>Ad Posted by : {{ad.ad_posted_by}}</p>
+              <a href="/chatbox/{{ad.id}}">Check Messages</a>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="best-features about-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-2 all des">
+            <div class="product-item">
+              <a><img src="{{ad.img2.url}}" height="150"  ></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-2 all des">
+            <div class="product-item">
+              <a><img src="{{ad.img3.url}}" height="150" ></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-2 all des">
+            <div class="product-item">
+              <a><img src="{{ad.img4.url}}" height="150" ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="send-message">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2><b>Have Queries?</b></h2>
+              <h2><b>Send a message to the Owner</b></h2>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="contact-form">
+              <form id="contact"  method="post" action="/sendmessage/{{ad.id}}/">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="Subject" type="text" class="form-control" id="name" placeholder="Subject" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="Message" rows="6" class="form-control" id="message" placeholder="Message" required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="filled-button">Send Message</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="happy-clients">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Related ADs</h2>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="owl-clients owl-carousel">
+
+              {% for i in cat %}
+              <div class="client-item">
+                <img src="{{i.img1.url}}" height="135" width="1" alt="2">
+                <br>
+                <a href="/singlead/{{i.id}}">{{i.ad_name}}</a><br>
+                <a> Rs.{{i.ad_price}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.ad_loc}}</a><br>
+              </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+        <br>
+
+
+
+{% include 'footer.html'%}
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>

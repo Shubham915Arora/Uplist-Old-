@@ -1,0 +1,176 @@
+{% load static %}
+{% include 'header.html'%}
+
+ <style>
+          .product-item1 img {
+    width: 50%;
+    overflow: hidden;
+    hhttp: //127.0.0.1:8000/eight;
+    hhttp: //127.0.0.1:8000/;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 20px 40px;
+}
+.product-item1  h4 {
+    font-size: 16px;
+    color: #1a6692;
+    margin-bottom: 20px;
+        font-size: 16px;
+    color: #1a6692;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+.product-item1 {
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+    height: 170px;
+}
+
+.product-item{
+    text-align: left;
+   }
+
+      </style>
+
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="banner header-text">
+      <div class="owl-banner owl-carousel">
+        <div class="banner-item-01">
+          <div class="text-content">
+            <h2>Welcome to Uplist Old</h2>
+            <h4>A platform, where you can sell and buy second hand products</h4>
+
+          </div>
+        </div>
+        <div class="banner-item-02">
+          <div class="text-content">
+            <h4>Flash Deals</h4>
+            <h2>Get your best products</h2>
+          </div>
+        </div>
+        <div class="banner-item-03">
+          <div class="text-content">
+            <h4>Last Minute</h4>
+            <h2>Grab last minute deals</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+     <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="filters">
+                <h1>Categories</h1>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+
+            <div class="filters-content">
+
+                <div class="row grid">
+                  {% for i in cat %}
+                    <div class="col-lg-2 col-md-2 all des">
+                      <div class="product-item1">
+                        <a href="productscat/{{i.id}}"><img src="{{i.cat_icon.url}}" height="135" width="1" ></a>
+                        <div class="down-content">
+                          <a href="productscat/{{i.id}}"><h4>{{i.cat_name}}</h4></a>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="filters">
+                <h1>Ads</h1>
+            </div>
+          </div>
+          <div class="col-md-12">
+
+            <div class="filters-content">
+
+                <div class="row grid">
+                  {% for i in ad %}
+                    <div class="col-lg-4 col-md-4 all des">
+                      <div class="product-item">
+                        <a href='/singlead/{{i.id}}'><img src="{{i.img1.url}}" height="200" width="=100"></a>
+                        <div class="down-content">
+                          <a href="/singlead/{{i.id}}"><h4>{{i.ad_name}}</h4></a>
+                            <h6>Rs.{{i.ad_price}}</h6>
+                            <h4>{{i.ad_loc}}</h4>
+                          <!---<p>{{i.ad_des}}</p>-->
+
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+{% include 'footer.html'%}
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>

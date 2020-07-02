@@ -1,0 +1,114 @@
+{% include 'header.html'%}
+{% load static%}
+<style>
+  .right-image{
+  height:800px;
+  width: 400px;
+
+.section-heading{
+    font-family: "Times New Roman", Times, serif;
+}
+.contact-form{
+    font-family: "Times New Roman", Times, serif;
+}
+</style>
+
+    <!-- Page Content -->
+<br><br><br>
+
+    <div class="send-message">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2><em>Update Ad</em></h2>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="contact-form">
+              <form id="contact" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      AD Name: <input name="ad_title" type="text" class="form-control" id="name" placeholder="Ad Title" value="{{ad.ad_name}}">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      Ad Description :<textarea name="ad_desc" rows="6" class="form-control" id="message" placeholder="Ad Description" value="{{ad.ad_des}}"></textarea>
+                    </fieldset>
+                  </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      Ad Category :
+                      <select name="ddlcat"  class="form-control" id="name" placeholder="Ad Price">
+                          <option>{{ad.ad_cat}}</option>
+                          {% for i in cat %}
+                            <option value="{{i.id}}">{{i.cat_name}}</option>
+                          {% endfor %}
+                      </select>
+                    </fieldset>
+                  </div>
+                  <div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <br>
+                      Ad Price :<input name="ad_price" type="text" class="form-control" id="name" placeholder="Ad Price" value="{{ad.ad_price}}">
+                    </fieldset>
+                  </div>
+                  </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      Ad Location :
+                      <select name="ad_loc"  class="form-control" id="name" placeholder="Ad Location">
+                          <option>{{ad.ad_loc}}</option>
+                          {% for i in loc %}
+                            <option value="{{i.id}}">{{i.loc_name}}</option>
+                          {% endfor %}
+                      </select>
+                    </fieldset>
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <fieldset>
+                          <br>
+                          Image 1 :<img src="{{ad.img1.url}}" height="70" ><input name="ad_image1" type="file" class="form-control" id="subject"  >
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <fieldset>
+                          Image 2 :<img src="{{ad.img2.url}}" height="70" ><input name="ad_image2" type="file" class="form-control" id="subject"  >
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <fieldset>
+                          Image 3 :<img src="{{ad.img3.url}}" height="70"  ><input name="ad_image3" type="file" class="form-control" id="subject"  >
+
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <fieldset>
+                          Image 4 :<img src="{{ad.img4.url}}" height="70"  ><input name="ad_image4" type="file" class="form-control" id="subject"  >
+                        </fieldset>
+                      </div>
+
+                  <div class="col-lg-12">
+                    <fieldset>
+                     <br> <button type="submit" id="form-submit" class="filled-button">Update Ad</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-12">
+
+          </div>
+        </div>
+
+    </div>
+    </div>
+<br>
+<br>
+<br><br>
+
+{% include 'footer.html'%}

@@ -1,0 +1,84 @@
+{% include 'header.html'%}
+{% load static%}
+<style>
+    .send-message{
+
+  }
+     .section-heading{
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  }
+    .contact-form{
+    font-family: "Times New Roman", Times, serif;
+  }
+
+
+</style>
+<br><br><br>
+
+    </div>
+    <div class="send-message">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Change Password </h2>
+            </div>
+          </div>
+          <div class="col-md-8">
+              <div class="contact-form">
+              <form id="contact" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <fieldset>
+                      <input name="username" type="text" class="form-control" id="name" placeholder="Username" required="">
+                    </fieldset>
+                  </div>
+                </div>
+                  <div class="row">
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <fieldset>
+                      <input name="password" type="password" class="form-control" id="name" placeholder="Password" required="">
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-8 col-md-8 col-sm-8">
+                    <fieldset>
+                      <input name="new_Password" type="password" class="form-control" id="name" placeholder="New Password" required="">
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="filled-button">Log in</button>
+                    </fieldset><br><br>
+
+                  </div>
+              </form>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+            <ul class="accordion" >
+              <li>
+                  <a href="https://smallbiztrends.com/2015/10/old-products-and-services-ideas.html">The Best Old Products to Buy Online</a>
+              </li>
+              <li>
+                  <a href="http://www.allstudyx.com/blog/10-precautions-when-you-buy-second-hand-products/">Precuations To take while Buying Old Products</a>
+              </li>
+              <li>
+                  <a href="http://www.allstudyx.com/blog/10-precautions-when-you-buy-second-hand-products/">How To Identify Authentic Buyers and Sellers</a>
+              </li>
+              <li>
+                  <a href="https://www.moneycrashers.com/successfully-negotiate-lower-prices/">How to Negotiate while Buying Old Products</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+{% include 'footer.html' %}

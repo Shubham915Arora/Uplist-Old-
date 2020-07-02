@@ -1,0 +1,201 @@
+{% include 'header.html'%}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+
+
+    <!-- Page Content -->
+
+
+<br><br>
+    <div class="best-features about-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2><b>{{user.username}}</b></h2>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="{{user.profilepic.url}}" height="200" width="100"><br><br>
+                <a style="color:red";>Upload Profile Picture :</a>
+                 <form id="contact" enctype="multipart/form-data" method="post">
+                     {% csrf_token %}
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                        <input name="profilepic" type="file" class="form-control" id="subject" >
+                        <button type="submit" id="form-submit" class="filled-button" style="color:red;">Upload</button>
+                    </fieldset>
+                  </div>
+
+                 </form>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="left-content">
+              <h4></h4>
+              <p> Username :{{user.username}}</p>
+                <p>Email :{{user.email}}</p>
+                <p>First Name :{{user.firstname}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Last Name:{{user.lastname}}</p>
+              <ul class="social-icons">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div class="team-members">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Our Team Members</h2>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-member">
+              <div class="thumb-container">
+                <img src="static/assets/images/cofounder.jpg" height="260">
+                <div class="hover-effect">
+                  <div class="hover-content">
+                    <ul class="social-icons">
+                      <li><a href="https://www.facebook.com/riddhi.gupta.7524"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://www.linkedin.com/in/riddhi-gupta-639a2b162/"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="down-content">
+                <h4>Riddhi Gupta</h4>
+                <span>CO-Founder</span>
+                <p>Area of Expertise are Python, Analytics.<br>Looks after the analytical growth of the company in terms of profit gained and losses occured,and designing of the website </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-member">
+              <div class="thumb-container">
+                <img src="static/assets/images/cofounder2.jpg" height="260">
+                <div class="hover-effect">
+                  <div class="hover-content">
+                    <ul class="social-icons">
+                      <li><a href="https://www.facebook.com/profile.php?id=100005147822760"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="https://twitter.com/arorashubham915?s=08"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://www.linkedin.com/in/shubham-arora-4361a5144/"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="down-content">
+                <h4>Shubham Arora</h4>
+                <span>Co-Founder</span>
+                <p>Area of Expertise are Python and Big Data.Looks after the overall growth in the field of data of the company,and development and maintenance of website</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+
+    <div class="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="service-item">
+              <div class="icon">
+
+                  <img src="static/assets/images/productmanagment.png" >
+              </div>
+              <div class="down-content">
+                <h4>Product Management</h4>
+                <p>Product Managment is something which we take most care of making sure that the best product is deliver at the Customer end .</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <div class="icon">
+                <img src="static/assets/images/cutomerrelations.png" height="180">
+              </div>
+              <div class="down-content">
+                <h4>Customer Relations</h4>
+                <p>It is the key to having Happy Customers for any Company to have good Customer Relations.</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <div class="icon">
+                <img src="static/assets/images/vast.jpeg" height="180">
+              </div>
+              <div class="down-content">
+                <h4>Vast Variety </h4>
+                <p>Uplist Old makes sure that we cater to everykind of user . What so ever they want to sell or buy .</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    {% include 'footer.html'%}
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>
+

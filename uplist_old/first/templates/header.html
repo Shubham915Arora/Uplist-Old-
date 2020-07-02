@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Uplist Old</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 546 Sixteen Clothing
+
+https://templatemo.com/tm-546-sixteen-clothing
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+<style
+  >
+
+  header .navbar {
+    padding: 17px 30px;
+}
+</style>
+  </head>
+
+  <body>
+
+
+    <!-- ***** Preloader End ***** -->
+ <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/"><img src="static/assets/images/logo.png" height="80" width="250"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" href="/adpost"><b>Post Ad</b> <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="/changepass"><b>Change Password</b> <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="/mypostedad"><b>My Posted Ads</b> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/userprofile"><b>Profile</b> <span class="sr-only">(current)</span></a>
+      </li>
+         <li class="nav-item active">
+        <a class="nav-link" href="/logout"><b>Log Out</b> <span class="sr-only">(current)</span></a>
+      </li>
+
+
+        {% else %}
+
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="categories/" id="navbarDropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <b>Categories</b>
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           {% for i in cat %}
+          <a class="dropdown-item" href="productscat/{{i.id}}/">{{i.cat_name}}</a>
+          <div class="dropdown-divider"></div>
+           {% endfor %}
+        </div>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/about"><b>About Us</b></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/login"><b>Login</b></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/signup"><b>Register</b></a>
+      </li>
+        {% endif %}
+
+    </ul>
+    <form method= "get" action= "search" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+    </header>

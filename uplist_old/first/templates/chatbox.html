@@ -1,0 +1,75 @@
+{% load static %}
+{% include 'header.html'%}
+<style>
+ .right-image {
+    width: 50%;
+    overflow: hidden;
+    hhttp: //127.0.0.1:8000/eight;
+    hhttp: //127.0.0.1:8000/;
+    height: 290px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 20px 40px;
+    </style>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+<!-- Page Content -->
+<br><br><br><br><br>
+
+{% for i in msg %}
+<li>
+   <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+               <h4 style="color:red">Subject:&nbsp;&nbsp;{{i.msg_regarding}}</h4><br>
+              <a>Message from:&nbsp;&nbsp;{{i.msg_from}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message To:&nbsp;&nbsp;{{i.msg_to}}</a><br><br>
+              <p>Message : {{i.msg_content}}</p>
+            </div>
+        </div>
+      </div>
+
+</li>
+{% endfor %}
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    {% include 'footer.html'%}
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>

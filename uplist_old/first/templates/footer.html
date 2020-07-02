@@ -1,0 +1,169 @@
+ {% load static %}
+<!-- Footer -->
+ <style>
+   .text-uppercase{
+   font-size: 18px;
+   color: black;
+   font-family: "Times New Roman", Times, serif;
+
+   }
+   p{
+    font-size: 16px;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+}
+  a{
+    color: red;
+}
+.page-footer{
+
+}
+ </style>
+<footer class="page-footer font-small mdb-color pt-4" style="background-color:	#DCDCDC";>
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Footer links -->
+    <div class="row text-center text-md-left mt-3 pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-9 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold">Uplist Old</h6>
+        <p>This is not just a website, but the byproduct of a lot of thought put behind how people suffer when they want to sell their old products and also the people who want to buy products in most suitable prices.</p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+        <p>
+          <a href="/adpost">Sell Your Items</a>
+        </p>
+        <p>
+          <a href="/about">About Us</a>
+        </p>
+        <p>
+          <a href="/contact">Contact Us</a>
+        </p>
+        <p>
+          <a href="/signup">New User?</a>
+        </p>
+      </div>
+
+      <!-- Grid column -->
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+        <p>
+          <i class="fa fa-home mr-3"></i> India, Kamla Nagar, India</p>
+        <p>
+          <i class="fa fa-envelope mr-3"></i> info@gmail.com</p>
+        <p>
+          <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+        <p>
+          <i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+
+        <!-- Social buttons -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+        <!-- Facebook -->
+        <a type="button" class="btn-floating btn-fb">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+        </a>
+        <br>
+        <!-- Twitter -->
+        <a type="button" class="btn-floating btn-tw">
+          <a href="#"><i class="fa fa-twitter"></i></a>
+        </a>
+        <br>
+        <!-- LinkedIn -->
+        <a type="button" class="btn-floating btn-tw">
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+        </a>
+        <br>
+                <!-- Instagram -->
+        <a type="button" class="btn-floating btn-tw">
+          <a href="#"><i class="fa fa-instagram"></i></a>
+        </a>
+
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Footer links -->
+<hr>
+
+    <!-- Grid row -->
+    <div class="row d-flex align-items-center">
+
+      <!-- Grid column -->
+      <div class="col-md-7 col-lg-8">
+
+        <!--Copyright-->
+        <p class="text-center text-md-left">© 2020 Copyright:
+          <a href="/">
+            <strong>Uplist Old - "Largest thrift website with widest variety and better deals for you"</strong>
+          </a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      </div>
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+</footer>
+<!-- Footer -->
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'static/assets/js/custom.js' %}"></script>
+    <script src="{% static 'static/assets/js/owl.js' %}"></script>
+    <script src="{% static 'static/assets/js/slick.js' %}"></script>
+    <script src="{% static 'static/assets/js/isotope.js' %}"></script>
+    <script src="{% static 'static/assets/js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>
