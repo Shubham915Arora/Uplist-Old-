@@ -49,6 +49,7 @@ class userprofile(models.Model):
     email=models.CharField(max_length=50,null=True,blank=True)
     password=models.CharField(max_length=40,null=True,blank=True)
     profilepic=models.ImageField(upload_to='profile_pic/', max_length=255,null=True,blank=True)
-
+    user_desc=models.CharField(max_length=25,null=True,blank=True)
+    loc=models.CharField(max_length=25,null=True,blank=True)
     def __str__(self):
         return self.username

@@ -2,13 +2,12 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import loc,ad,cat,message
+from .models import loc,ad,cat,message,userprofile
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def signup(request):
-    catdata = cat.objects.all()
     if request.method == 'POST':
         username = request.POST['username']
         firstname = request.POST['first_name']
@@ -26,11 +25,12 @@ def signup(request):
         return redirect('index page')
 
     else:
+        catdata = cat.objects.all()
         return render(request, 'form.html',{'cat':catdata})
 
 
 def login(request):
-    catdata = cat.objects.all()
+
     if request.method == 'POST':
         username1 = request.POST['username']
         password1 = request.POST['password']
@@ -42,11 +42,12 @@ def login(request):
 
         else:
             auth_login(request, x)
-            return redirect('index page')
+            return redirect('User-Profile')
 
 
 
     else:
+        catdata = cat.objects.all()
         return render(request, 'login.html',{'cat':catdata})
 
 @login_required(login_url='/login/')
@@ -55,8 +56,6 @@ def logout(request):
     return redirect('./')
 
 def index(request):
-    catdata = cat.objects.all()
-    addata = ad.objects.all()
 
 
     if request.method=='POST':
@@ -66,8 +65,9 @@ def index(request):
             addata=ad.objects.get(ad_name=search)
             return render(request, 'single-product.html/addata.id/', {'ad': addata})
     else:
-
-        return render(request, 'index.html',{'cat': catdata,'ad':addata})
+        catdata = cat.objects.all()
+        addata =ad.objects.all()
+        return render(request, 'index.html',{'cat':catdata,'ad':addata})
 
 
 def contact(request):
@@ -96,11 +96,11 @@ def adpost(request):
     else:
         catdata=cat.objects.all()
         locdata=loc.objects.all()
-        return render(request, 'postad.html',{'cat': catdata,'loc': locdata})
+        return render(request, 'postad.html',{'cat':catdata,'loc':locdata})
 
 def products(request):
     addata=ad.objects.all()
-    return render(request,'products.html',{'ad': addata})
+    return render(request,'products.html',{'ad':addata})
 
 @login_required(login_url='/login/')
 def changepassword(request):
@@ -159,7 +159,8 @@ def productscat(request, id=None):
     return render(request,'products.html',{'ad':addata,'cat':catdata})
 
 def about(request):
-    return render(request, 'about.html')
+    catdata = cat.objects.all()
+    return render(request, 'about.html',{'cat':catdata})
 
 @login_required(login_url='/login/')
 def chatbox(request, id=None):
@@ -226,4 +227,22 @@ def changedata(request,id=None):
         return render(request,'changedata.html',{'cat': catdata,'loc': locdata,'ad':addata})
 
 def userprofile(request):
-    return render(request, 'userprofile.html')
+    if request.method=='POST':
+        user_info =request.POST.get('user_info')
+        user_fname=request.POST.get('user_fname')
+        user_lname=request.POST.get('user_lname')
+        user_image=request.FILES.get('user image')
+        user_loc=request.FILES.get('ad_loc')
+        user_city=request.POST.get('user')
+        obj =userprofile.objects.get(user=request.user.id)
+        obj.user_desc =user_info
+        obj.firstname=user_fname
+        obj.lastname=user_lname
+        obj.profilepic=user_image
+        obj.loc=user_loc
+        obj.save()
+        return redirect('')
+    else :
+        catdata = cat.objects.all()
+        locdata = loc.objects.all()
+        return render(request, 'userprofile.html',{'cat': catdata,'loc': locdata})

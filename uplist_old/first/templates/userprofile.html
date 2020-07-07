@@ -1,12 +1,18 @@
 {% include 'header.html'%}
-{% load static%}
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<style>
 
-
-
-  <body>
-
+   .right-image img{
+     width: 80%;
+    overflow: hidden;
+    hhttp: //127.0.0.1:8000/eight;
+    hhttp: //127.0.0.1:8000/;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 20px 40px;
+          }
+</style>
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -34,14 +40,14 @@
           </div>
           <div class="col-md-6">
             <div class="right-image">
-              <img src="{{user.profilepic.url}}" height="200" width="100"><br><br>
+              <img src="{{user.profilepic.url}"><br><br>
                 <a style="color:red";>Upload Profile Picture :</a>
                  <form id="contact" enctype="multipart/form-data" method="post">
                      {% csrf_token %}
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
                         <input name="profilepic" type="file" class="form-control" id="subject" >
-                        <button type="submit" id="form-submit" class="filled-button" style="color:red;">Upload</button>
+
                     </fieldset>
                   </div>
 
@@ -53,7 +59,47 @@
               <h4></h4>
               <p> Username :{{user.username}}</p>
                 <p>Email :{{user.email}}</p>
-                <p>First Name :{{user.firstname}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Last Name:{{user.lastname}}</p>
+
+                            <div class="contact-form">
+              <form id="contact" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      User Name: <input name="user_fname" type="text" class="form-control" id="name" placeholder="User Name" value="{{ad.ad_name}}">
+                    </fieldset>
+                  </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      Last Name: <input name="user_lname" type="text" class="form-control" id="name" placeholder="Last Name" value="{{ad.ad_name}}">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                        User Description :<textarea name="ad_desc" rows="6" class="form-control" id="message" placeholder="User Description" value="{{ad.ad_des}}"></textarea>
+                    </fieldset>
+                  </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      User Location :
+                      <select name="ad_loc"  class="form-control" id="name" placeholder="Ad Location">
+                          <option>{{ad.ad_loc}}</option>
+                          {% for i in loc %}
+                            <option value="{{i.id}}">{{i.loc_name}}</option>
+                          {% endfor %}
+                      </select>
+                    </fieldset>
+
+                  <div class="col-lg-12">
+                    <fieldset>
+                     <br> <button type="submit" id="form-submit" class="filled-button">Update User</button>
+                        <br><br>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
               <ul class="social-icons">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -82,7 +128,7 @@
                   <div class="hover-content">
                     <ul class="social-icons">
                       <li><a href="https://www.facebook.com/riddhi.gupta.7524"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://twitter.com/RiddhiG93095516"><i class="fa fa-twitter"></i></a></li>
                       <li><a href="https://www.linkedin.com/in/riddhi-gupta-639a2b162/"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                   </div>
